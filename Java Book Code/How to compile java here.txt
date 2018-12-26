@@ -1,0 +1,4 @@
+open command prompt and navigate to the appropriate directory
+
+type javac filename.java (Creates the class for it to compile)
+then java filename (Runs the program)
