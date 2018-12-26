@@ -1,0 +1,425 @@
+
+<!-- saved from url=(0057)http://vlm1.uta.edu/~alex/courses/1310/homework/hw04.html -->
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+ <title>CSE1310 - Homework 4 </title>
+</head>
+
+<body>
+<a href="http://vlm1.uta.edu/~alex/courses/1310/homework/homework.html">Homework</a>
+<h1>Homework 4</h1>
+
+Topics: strings, loops, nested loops.  (100 points)
+
+<br>
+ 
+<hr>  
+<h3>Task 1 (12 pts)  </h3>
+Project and main class names: HW4_MathFunction
+<br> Submit java file: HW4_MathFunction.java
+<br>
+Write a program that asks the user for 2 integers A and B and computes the value of the expression: 
+<p>
+9 + (x+3)/2
+</p>
+<p>
+ for all the integer values of x between A and B inclusive. Note that the result is a real number (not an integer).
+ <br> See sample runs below for cases when A≥B.
+</p><pre>------------ Sample run 1:
+This program will print the values of the function:
+  9 + (x+3)/2 for A &lt;= x &lt;= B.
+Enter value for A: 10
+Enter value for B: 16
+
+9 + (10+3)/2 = 15.50
+9 + (11+3)/2 = 16.00
+9 + (12+3)/2 = 16.50
+9 + (13+3)/2 = 17.00
+9 + (14+3)/2 = 17.50
+9 + (15+3)/2 = 18.00
+9 + (16+3)/2 = 18.50
+Bye
+
+------------ Sample run 2:
+This program will print the values of the function:
+  9 + (x+3)/2 for A &lt;= x &lt;= B.
+Enter value for A: 0
+Enter value for B: 3
+
+9 + (0+3)/2 = 10.50
+9 + (1+3)/2 = 11.00
+9 + (2+3)/2 = 11.50
+9 + (3+3)/2 = 12.00
+Bye
+
+------------ Sample run 3:
+This program will print the values of the function:
+  9 + (x+3)/2 for A &lt;= x &lt;= B.
+Enter value for A: 3
+Enter value for B: 0
+Bye
+
+------------ Sample run 4:
+This program will print the values of the function:
+  9 + (x+3)/2 for A &lt;= x &lt;= B.
+Enter value for A: 3
+Enter value for B: 3
+
+9 + (3+3)/2 = 12.00
+Bye
+</pre>
+
+
+<hr>
+ <h3>Task 2 (12 pts) </h3>
+Project name: HW4_ReverseString
+ <br>
+ Write a program that reads a string from the user, and creates another string with the letters from it in reversed order. You should do this using string concatenation and loops. Do not use any method from Java that does the work for you. The reverse string must be built. Do not just print the letters in reversed order. Instead, concatenate them in a string.
+ <br>
+Components to this problem:
+<ol>
+	<li> Can you make a copy a string? Go through the letters one by one and copy them in another string?
+	</li><li> Can you iterate through a string in reverse order? Print it to the screen to check it out.
+	</li><li> Combine the above.
+</li></ol>
+<pre>--- Sample run:
+This program will create a string with letters in reversed order.
+Enter a string: cat
+The reversed string is: tac
+Bye
+
+--- Sample run:
+This program will create a string with letters in reversed order.
+Enter a string: cats and dogs
+The reversed string is: sgod dna stac
+Bye
+</pre>
+
+
+
+ <!------------------------------------------------------------------->
+<hr>
+<h3>Task 3 (12 pts)</h3>
+Project and main class names: HW4_CountBy <br>
+Submit:  HW4_CountBy.java
+<p>
+Write a program that reads three integers: <i>start, end, step</i>. It should print all the numbers starting with <i>start</i> and up to <i>end</i> in steps of <i>step</i>. 
+</p><pre>----------  Sample run 1
+This program will be counting by a certain step.
+Enter what you want the start, end and stop values to be.
+start is:  3
+end is:  12
+step is:  4
+The sequence is: 3 7 11
+Bye
+
+
+----------  Sample run 2
+This program will be counting by a certain step.
+Enter what you want the start, end and stop values to be.
+start is:  3
+end is:  30
+step is:  2
+The sequence is: 3 5 7 9 11 13 15 17 19 21 23 25 27 29
+Bye
+
+
+----------  Sample run 3
+This program will be counting by a certain step.
+Enter what you want the start, end and stop values to be.
+start is:  15
+end is:  21
+step is:  1
+The sequence is: 15 16 17 18 19 20 21
+Bye
+
+
+----------  Sample run 4
+This program will be counting by a certain step.
+Enter what you want the start, end and stop values to be.
+start is:  4
+end is:  19
+step is:  5
+The sequence is: 4 9 14 19
+Bye
+
+
+----------  Sample run 5 (start &gt; end)
+run:
+This program will be counting by a certain step.
+Enter what you want the start, end and stop values to be.
+start is:  15
+end is:  4
+step is:  3
+The sequence is:
+Bye
+</pre>
+
+<!------------------------------------------------------------------->
+<hr>
+<h3>Task 4 (16 pts)</h3>
+Project and main class names: HW4_VerifyCountBy<br>
+<p>
+Now that you can produce the correct sequence of numbers, use that to implement a program that will verify the answers of a kid learning such counting.
+<br>
+The program should read three integers: <i>start, end, step</i>. After that, it should let the user enter the numbers (by hitting ENTER after each one) and it will verify if they are correct. See the sample runs below: 
+
+</p><pre>----------  Sample run 1
+This program will be counting by a certain step.
+Enter what you want the start, end and stop values to be.
+start is:  3
+end is:  15
+step is:  2
+Enter the numbers (starting with 3):
+Enter your answer:  3
+Correct
+Enter your answer:  5
+Correct
+Enter your answer:  7
+Correct
+Enter your answer:  8
+Wrong. The correct answer was: 9
+Enter your answer:  11
+Correct
+Enter your answer:  13
+Correct
+Enter your answer:  15
+Correct 
+Bye
+
+----------  Sample run 2
+This program will be counting by a certain step.
+Enter what you want the start, end and stop values to be.
+start is:  3
+end is:  12
+step is:  4
+Enter the numbers (starting with 3):
+Enter your answer:  3
+Correct
+Enter your answer:  7
+Correct
+Enter your answer:  11
+Correct
+Bye
+ 
+----------  Sample run 3
+This program will be counting by a certain step.
+Enter what you want the start, end and stop values to be.
+start is:  3
+end is:  12
+step is:  4
+Enter the numbers (starting with 3):
+Enter your answer:  3
+Correct
+Enter your answer:  6
+Wrong. The correct answer was: 7
+Enter your answer:  11
+Correct
+Bye
+</pre>
+
+
+
+<!------------------------------------------------------------------->
+<hr>
+<h3>Task 5 (16 pts)</h3>
+Project and main class names: HW4_Rectangles  <br>
+Submit:  HW4_Rectangles.java
+<p>
+Write a program that reads an integer and displays, using asterisks, a filled and hollow square, placed next to each other. For example, if the side length is 5, the program should display:
+</p><pre>*****  *****
+*****  *   *
+*****  *   *
+*****  *   *
+*****  *****
+</pre>
+
+
+<br> You can assume that the user will enter a side length that is at least 2. If user enters a number smaller than 2, and your program has an incorrect behaviour, it is ok.
+<br>
+Hint: Using loops, build a string with the pattern for one line (e.g. "******  *    *" or "******  ******"). Otherwise, you will have to use nested loops.
+<pre>------ Sample run 1
+This program will display a full and an empty square given the side length.
+Enter the side length: 6
+******  ******
+******  *    *
+******  *    *
+******  *    *
+******  *    *
+******  ******
+Bye
+
+
+------ Sample run 2
+This program will display a full and an empty square given the side length.
+Enter the side length: 10
+**********  **********
+**********  *        *
+**********  *        *
+**********  *        *
+**********  *        *
+**********  *        *
+**********  *        *
+**********  *        *
+**********  *        *
+**********  *        *
+**********  *        *
+**********  **********
+Bye
+
+
+------ Sample run 3
+This program will display a full and an empty square given the side length.
+Enter the side length: 3
+***  ***
+***  * *
+***  ***
+Bye
+</pre>
+
+
+
+
+Suggested steps for breaking down the problem:
+<ol>
+<li>  Print only the filled square.
+<pre>*****
+*****
+*****
+*****
+*****
+</pre>
+</li><li>  Print only the hollow square.
+<pre>*****
+*   *
+*   *
+*   *
+*****
+</pre>
+
+</li><li>  Print the filled square first and the hollow one after.
+<pre>*****
+*****
+*****
+*****
+*****
+
+*****
+*   *
+*   *
+*   *
+*****
+</pre>
+</li><li> Print them next to each other as required:
+<pre>*****  *****
+*****  *   *
+*****  *   *
+*****  *   *
+*****  *****
+</pre>
+</li></ol>
+
+
+<!------------------------------------------------------------------->
+<hr>
+<h3>Task 6 (16 pts)</h3>
+Project: HW4_Encode
+<p>
+Write a program that asks the user for a phrase and encodes it. In order to encode it, replace each letter with the corresponding one in the encoding string. See below:
+</p><pre>original letters: abcdefghijklmnopqrstuvwxyz
+                  ||||||||||||||||||||||||||
+encoding letters: qwertyuioplkjhgfdsazxcvbnm
+</pre>
+for example every <tt>a</tt> will be replaced by a <tt>q</tt>, every <tt>p</tt> will be replaced by a <tt>f</tt>. 
+<br>
+Hint: The original letter and the encoded are at the same index in the two strings.
+<br>
+Requirements: 
+<ol>
+	<li> You must be able to encode both upper and lower case letters. 
+	</li><li> If a symbol is not a letter you do not encode it.
+</li></ol>
+<pre>---- Sample run (notice that the same letter is encoded to a single letter for all words. For example o "becomes" g and l "becomes" k.)
+Enter a phrase and I will encode it:
+How on Earth will you do that?
+The encoded phrase is:
+Igv gh Tqszi vokk ngx rg ziqz?
+Bye
+
+---- Sample run 2
+Enter a phrase and I will encode it:
+weird 54 )&amp; 
+The encoded phrase is:
+vtosr 54 )&amp;
+Bye
+</pre>
+<p></p>
+
+
+<!------------------------------------------------------------------->
+<hr>
+<h3>Task 7 (16 pts)</h3>
+Project: HW4_CountVowelsOnce
+<p>
+Do the same as in class, but count distinct vowels. Do not count repetitions of the same vowel. For example <tt>heat</tt> has 2 distinct vowels (e and a), but <tt>heel</tt> has one distinct vowel (e).
+</p>
+<pre>----  Sample run:
+Enter a phrase. I will count the vowels.
+You are such a show-off!
+There are 5 distinct vowels in "You are such a show-off!".
+There are 9 total vowels in "You are such a show-off!".
+Bye
+
+----  Sample run:
+Enter a phrase. I will count the vowels.
+cnt ths f cn
+There are 0 distinct vowels in "cnt ths f cn".
+There are 0 total vowels in "cnt ths f cn".
+Bye
+
+----  Sample run:
+Enter a phrase. I will count the vowels.
+I give up...
+There are 3 distinct vowels in "I give up...".
+There are 4 total vowels in "I give up...".
+Bye
+</pre>
+<!------------------------------------------------------------------->
+<hr>
+
+<h3>Penalties</h3>
+All solution files (.java) should be placed in a folder called <b>HW4_Lastname (e.g. my folder would be called: HW4_Stefan)</b>. Zip this folder and submit it to Blackboard. 
+
+
+
+<br> 
+ 
+
+
+<ol>
+<li> <font color="red">CODE THAT DOES NOT RUN  due to a SYNTAX ERROR 25%-80% penalty per task. Notice that this penalty is up to 80% now. At this point we expect you are able to understand the syntax and fix such problems.</font></li>
+
+<li> RUN-TIME ERROR FOR INPUT SPECIFICALLY SHOWED AS AN EXAMPLE: 20% of task grade. Runtime-error for grader’s input: 5-20% of task grade (depending on the reason of why it fails).  <br>
+</li>
+<li> **** Code using elements we had not covered at the time the homework was due, receives no credit. 
+
+</li><li> Up to <b>20</b> points will be lost for non-compliance with the submission requirements: folder name, all files in a folder, zipped folder, the compressed file is a zip, the program files have extension .java, ... </li>
+
+<li> Each program must have:
+<ul>
+	<li> description and your name at the top
+	</li><li> comments 
+	</li><li> meaningful variable names 
+	</li></ul>
+	A program missing some or all of these will receive a penalty of up to 10% of the points for that task.</li>
+
+<!--<li> The answers file must be .pdf, .docx or .txt. NO OTHER TYPES of files accepted. -->  
+</ol>
+
+
+<hr>
+
+
+
+
+
+</body></html>

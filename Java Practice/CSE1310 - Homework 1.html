@@ -1,0 +1,214 @@
+
+<!-- saved from url=(0057)http://vlm1.uta.edu/~alex/courses/1310/homework/hw01.html -->
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+ <title>Homework 1 </title> 
+</head>
+
+<body>
+<h1>
+<!--<a href="../index.html">Home</a> - -->
+<!-- <a href="homeworks.html">Homeworks</a> - -->
+Homework 1</h1>
+
+Total points: 100 
+<br><br>
+<!--<font color="red">Individual work.</font> -->
+Topics covered: printing, user input, operators. 
+ <br> <br>
+
+
+All the solution files should have your name and <font color="red">program description</font> at the top. This information will be included in the .java files as a comment. For example:
+
+<pre>/*
+Alexandra Stefan
+This program prints: Hello World!.
+*/
+</pre>
+
+<font color="red"><b>IN ADDITION</b> to this program description, you should include short comments in the code that explain the calculations being performed.
+<br> For the first programs these comments would be trivial (and not really needed), but do write some to get in the habit of doing so. Soon you will be penalized (lose points) if you do not have such comments.</font>
+<hr>
+
+<p>
+
+</p>
+
+
+Homework submission instructions are posted at: <a href="http://vlm1.uta.edu/~alex/courses/1310/homework/Blackboard_submission.html"> Submission requirements and help submitting through Blackboard.</a>  (also accessible from the homework page).
+<br> Whenever you need to write a program (e.g. for Task 1), you will follow these steps:
+<ol>
+	<li> Create a project named HW1_SomeName	
+	</li><li> Remember to delete the part before and including the dot in the name e.g. "hw1_mistery.HW1_SomeName" should be "HW1_SomeName". This text is next to a checkbox labelled "Create Main Class" in the window that comes up as you are in the process of creating a new project. You can see presentation <a href="http://vlm1.uta.edu/~alex/courses/1310/lectures/02a_running_java.pdf">How to run a Java Program</a>.
+	</li><li> This will create a project that will contain a file called HW1_SomeName.java (that is where you will write the code). That is the file you will submit. In order to find where this file is located, when in Netbeans, hover with the mouse over the name of the file (in the editor window). This will show the full path to the file. It will look something like this: '.../HW1_SomeName/src/HW1_SomeName.java'.
+</li></ol>
+
+<!----------------------------------------------------------------------------------------------------------------------------->
+
+<hr>
+<h3>Task 1 (25 pts.)  - Draw a face</h3>
+<p> 
+Create a project called 'HW1_Face'. Write the code in the main method (as we did in class). SUBMIT ONLY the file 'HW1_Face.java' (it should be in folder HW1_Face\src).  
+<br>
+Write code that when executed prints a face. Below there is an example, but your face can look different. Feel free to be creative (add hair, hat, beard, frown, smile, etc).
+NOTE: that in order to print \, you must double it in the string, and use: \\.
+</p><pre>    -------
+   /       \
+   | o   o |
+   |   ^   |
+    \  -  /
+     -----
+</pre>
+
+
+
+
+<!----------------------------------------------------------------------------------------------------------------------------->
+
+<!----------------------------------------------------------------------------------------------------------------------------->
+<hr>
+<h3>Task 2 (25 pts.)</h3>
+<p> 
+Create a project called 'HW1_Robots'. Write the code in the main method (as we did in class). SUBMIT ONLY the file 'HW1_Robots.java' (it should be in folder HW1_Robots\src).  
+<br>
+The program should ask the user to enter the current year, the year when robots will take over the World and their birthday year. Next, the program will compute and print the information shown below. 
+<br>
+<font color="red">NOTE that you must display the text exactly as shown: the same text prompting for the years, read the years in the order shown below and also print the two sentences in the order and format shown below. </font>
+<br>
+</p>
+The sample program run given below uses blue fonts to show what data was entered by the user. For example in the first run, values <font color="BLUE">2016,2018</font> and <font color="BLUE">2010</font> were entered by the user.
+<pre>-------- Here is the result of running the program once:
+Enter the current year: <font color="BLUE">2016</font>
+Enter the year when robots take over the World: <font color="BLUE">2018</font>
+Enter your birthday year: <font color="BLUE">2010</font>
+
+You have 2 years until they take over.
+After 6 years, you have finally found the best thing in life: Computer Science.
+
+
+-------- Here is the result of running the program again:
+Enter the current year: <font color="BLUE">6</font>
+Enter the year when robots take over the World: <font color="BLUE">200</font>
+Enter your birthday year: <font color="BLUE">2</font>
+
+You have 194 years until they take over.
+After 4 years, you have finally found the best thing in life: Computer Science.
+</pre>
+
+
+
+<hr>
+<!----------------------------------------------------------------------------------------------------------------------------->
+
+
+<h3>Task 3 (25 pts.)</h3>
+<p>
+Create a project called 'HW1_Calculator'. Write the code in the main method (as we did in class). SUBMIT ONLY the file 'HW1_Calculator.java' (it should be in folder HW1_Calculator\src). 
+<br>
+The program should ask the user to enter two <b>integers</b> and compute and display the following operations between the two: multiplication, division, modulo . Your program's output must be the same as mine.
+<br>
+Note that the numbers are displayed on a total of <font color="RED">4</font> spaces (in the example below there are 2 spaces before <font color="RED">30</font>). 
+<br> <font color="red">You MUST use printf with the appropriate format specifiers to achieve this output.</font> See the slides: "Input and Formatted output (printf)" and/or book Chapter 2.3
+<font color="purple">
+<br> Use one space around each operator. The lines below show the count (1234) for the spaces reserved for the number and ppp for the spaces used for the operator. Note that you cannot center-allign, but since the operators are hardcoded, you can also hardcode the spaces. 
+</font></p><pre><font color="purple">1234ppp1234ppp1234
+   3 *   10 =   30
+</font></pre><font color="purple">
+
+</font>
+<br>
+Note that since % is a special character indicating that we want to format the display of a number (e.g. System.out.printf("%7.3f", 9.5); ), in order to print the symbol %, you have to write %%. Try:    System.out.printf("%%");
+<br>
+
+<p></p>
+<pre>-------- Here is the result of running the program once(numbers <font color="BLUE">3</font> and <font color="BLUE">10</font> are entered by the user):
+Enter the first number: <font color="BLUE">3</font>
+Enter the second number: <font color="BLUE">10</font>
+   3 *   10 =   30
+   3 /   10 =    0
+   3 %   10 =    3
+
+  10 *    3 =   30
+  10 /    3 =    3
+  10 %    3 =    1
+ 
+-------- Here is the result of running the program again (numbers <font color="BLUE">402</font> and <font color="BLUE">5</font> are entered by the user):
+Enter the first number: <font color="BLUE">402</font>
+Enter the second number: <font color="BLUE">5</font>
+ 402 *    5 = 2010
+ 402 /    5 =   80
+ 402 %    5 =    2
+
+   5 *  402 = 2010
+   5 /  402 =    0
+   5 %  402 =    5
+</pre>
+
+<hr>
+
+
+
+<!----------------------------------------------------------------------------------------------------------------------------->
+
+<h3>Task 4 (25 pts.) (Adapted from book problem P2.3, page 71)</h3> 
+Create a project called 'HW1_Table'. Write the code in the main method (as we did in class). SUBMIT ONLY the file 'HW1_Table.java' (it should be in folder HW1_Table\src). 
+<br>
+The program should prompt the user to enter an integer n and then computes the square, cube and fourth power and displays them in a nice table as shown below.
+Your table must have the same format as mine. Use System.out.printf to produce this formatted output. See the slides: "7. Formatted output (printf): PPT, PDF- Chapter 2."
+<br>
+Hints: 
+<br> Note that the data in the first column needs to be displayed as is (it is the same for all runs) but the data in the right column is calculated.
+<br> You can compute the cube of a number by multiplying it 3 times. E.g. 15*15*15. But remember that your number should be hardcoded, it should be a variable.
+<br> Decompose the problem. Identify each of these: input data, new data (that you must compute), display. 
+
+<pre>-------- Here is the result of running the program once:
+Enter n: <font color="BLUE">4</font>
++----------+-----+
+|         n|    4|
++----------+-----+
+| n squared|   16|
++----------+-----+
+|   n cubed|   64|
++----------+-----+
+|       n^4|  256|
++----------+-----+
+
+-------- Here is the result of running the program again:
+Enter n: <font color="BLUE">10</font>
++----------+-----+
+|         n|   10|
++----------+-----+
+| n squared|  100|
++----------+-----+
+|   n cubed| 1000|
++----------+-----+
+|       n^4|10000|
++----------+-----+
+
+-------- Here is the result of running the program again:
+Enter n: <font color="BLUE">2</font>
++----------+-----+
+|         n|    2|
++----------+-----+
+| n squared|    4|
++----------+-----+
+|   n cubed|    8|
++----------+-----+
+|       n^4|   16|
++----------+-----+
+</pre>
+
+<hr>
+<b><font color="red"> From now on, we will call 'the result of running the program' a 'sample run'. Please ask me in class if you have questions about this terminology, the program input, output, behavior, or anything else regarding the homework.
+<br> Remind me to show in class the process for homework submission. 
+<br> Blackboard related questions?</font></b>
+<hr>
+
+<h3>Grading criteria </h3>
+You must follow the naming conventions exactly. Your files must be called exactly as indicated. 
+As this is the first assignment, points will NOT be deducted for the naming conventions, but feed-back will be provided(if you did not follow them). 
+Starting from homework 2, you will be penalized for not following the naming conventions, so make sure you read the feed-back and check with the TA if you have any questions about it.
+
+
+
+
+</body></html>

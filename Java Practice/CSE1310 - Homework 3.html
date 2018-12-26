@@ -1,0 +1,264 @@
+
+<!-- saved from url=(0057)http://vlm1.uta.edu/~alex/courses/1310/homework/hw03.html -->
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+ <title>CSE1310 - Homework 3 </title>
+</head>
+
+<body>
+<a href="http://vlm1.uta.edu/~alex/courses/1310/homework/homework.html">Homework</a>
+<h1>Homework 3</h1>
+
+Total points: 100 <br> <br>
+Topics: complex boolean expressions, while loops.  
+
+
+
+  <br>
+ 
+ <hr>
+ 
+ 
+ <h3>Task 1 (25pts) </h3>
+Create project: HW3_Abs
+<br> Submit java file: HW3_Abs.java
+<br><br>
+ 
+Write a program that takes two real numbers <i>a</i> and <i>b</i>. Your program will need to compute <i>|a-b|</i>  (in this order).  
+You CANNOT use the Math.abs function for this. Instead you must compute the difference and turn it into a positive value. Or you can compare the numbers and use that to decide if you want to use a-b or b-a.
+<br>
+Print the larger number minus the smaller number and the result as shown below.
+<br>
+You can use a method or not use a method (write the code directly in the "main" method).
+<br>
+(5 points) On a separate document called answers.pdf draw the flowchart for this program. (If you wrote your code in a new method, draw the flow chart for that method.)
+
+<pre>------ Sample run 1:
+Enter a: 2
+Enter b: 7
+7.00-2.00 = 5.00
+
+------ Sample run 2:
+Enter a: 7
+Enter b: 2
+7.00-2.00 = 5.00
+
+------ Sample run 3:
+Enter a: 16.5321
+Enter b: 90
+90.00-16.53 = 73.47
+</pre>
+
+
+<hr>
+ <h3>Task 2 (20 pts)   - complex boolean expression</h3>
+Create project: HW3_Aries  
+<br> Submit java file: HW3_Aries.java
+<br><br>
+ 
+Write a program that reads the month and the day from the user and prints whether or not someone born on that date is under the Aries astrological sign or not.<br>
+Anyone born between and including March 21 and April 19 is Aries.
+<br> You can assume that the month and day are given as integer numbers (e.g. do not worry about user enterring March)
+<br>
+Hint: write the condition for an Aries date in March. Write the condition for April. Put these two together.
+<pre>--- Sample run:
+Enter the month: 3
+Enter the day: 21
+Aries.
+
+--- Sample run:
+Enter the month: 4
+Enter the day: 19
+Aries.
+
+--- Sample run:
+Enter the month: 3
+Enter the day: 27
+Aries.
+
+--- Sample run:
+Enter the month: 4
+Enter the day: 6
+Aries.
+
+--- Sample run:
+Enter the month: 3
+Enter the day: 40
+Not Aries.
+
+--- Sample run:
+Enter the month: 4
+Enter the day: -5
+Not Aries.
+
+--- Sample run:
+Enter the month: 2
+Enter the day: 27
+Not Aries.
+</pre>
+Extra (for practice, not grade): recognize the month in other formats as well: Mar, March, 3, 03, Apr, April, 4, 04. 
+
+<hr>
+ <h3>Task 3 (20 pts) - easy loop</h3>
+Project name: HW3_Faces
+<br>
+Write a program that repeatedely prints the face from homework 1, until the user chooses to stop. See sample run for the expected behavior.
+<pre>--- Sample run 1:
+Do you want me to draw a face (yes/no)? no
+
+
+--- Sample run 2:
+Do you want me to draw a face (yes/no)? yes
+    -------
+   /       \
+   | o   o |
+   |   ^   |
+    \  -  /
+     -----
+Do you want me to draw a face (yes/no)? Yes
+    -------
+   /       \
+   | o   o |
+   |   ^   |
+    \  -  /
+     -----
+Do you want me to draw a face (yes/no)? YES
+    -------
+   /       \
+   | o   o |
+   |   ^   |
+    \  -  /
+     -----
+Do you want me to draw a face (yes/no)? yessss
+</pre>
+Extra (for practice, NOT for grade): You can improve the program to ask if the user had a good or a bad day and it prints a happy or sad face.
+
+
+ <hr>
+ <h3>Task 4 (30 pts) - complex program, 2-3 step processing, non-trivial data manipulation, formatted printing</h3>
+Project name: HW3_Bank
+ <br>
+ Write a program that simulates bank transactions for an account. When the program starts, the user is prompted to enter the amount of money in their account.
+<br>
+ Next the user is repeatedly prompted for transactions. He/she enters a real number for each transaction:
+ <ol> 
+	<li> positive numbers mean money added to the bank. 
+	</li><li> negative numbers mean money removed from the bank. 
+	</li><li> 0 means the user has no more transactions. The loop will stop.
+</li></ol>
+Finally the program should display a message that compares the current ballance with the original one (before the transactions).
+<br> See sample runs below.
+<br> Match the output, especially teh formated printing of the transaction and ballance.
+<pre>--- Sample run 1:
+This program simulates transactions in a bank account.
+Enter your current ballance (money in your account): 1076.1234
+Enter transaction: 15
+|transaction|   ballance|
+|      15.00|    1091.12|
+Enter transaction: -20
+|transaction|   ballance|
+|     -20.00|    1071.12|
+Enter transaction: 100
+|transaction|   ballance|
+|     100.00|    1171.12|
+Enter transaction: 80
+|transaction|   ballance|
+|      80.00|    1251.12|
+Enter transaction: -2000
+|transaction|   ballance|
+|   -2000.00|    -748.88|
+Enter transaction: 50
+|transaction|   ballance|
+|      50.00|    -698.88|
+Enter transaction: 0
+You lost money.
+Bye
+
+--- Sample run 2:
+This program simulates transactions in a bank account.
+Enter your current ballance (money in your account): 89.56789
+Enter transaction: 10
+|transaction|   ballance|
+|      10.00|      99.57|
+Enter transaction: -5
+|transaction|   ballance|
+|      -5.00|      94.57|
+Enter transaction: 20
+|transaction|   ballance|
+|      20.00|     114.57|
+Enter transaction: 60
+|transaction|   ballance|
+|      60.00|     174.57|
+Enter transaction: 0
+You made money or have the same as when you started.
+Bye
+
+--- Sample run 3:
+This program simulates transactions in a bank account.
+Enter your current ballance (money in your account): 0
+Enter transaction: 15.789
+|transaction|   ballance|
+|      15.79|      15.79|
+Enter transaction: -15.789
+|transaction|   ballance|
+|     -15.79|       0.00|
+Enter transaction: 0
+You made money or have the same as when you started.
+Bye
+
+
+--- Sample run 4:
+This program simulates transactions in a bank account.
+Enter your current ballance (money in your account): -100
+Enter transaction: 0
+You made money or have the same as when you started.
+Bye
+</pre>
+Extra (for practice, not grade): in the line, also print teh ballance before the transaction. E.g:
+<pre>Enter transaction: -5
+|   ballance|transaction|   ballance|
+|      99.57|      10.00|      94.57|
+
+</pre>
+
+
+
+<!------------------------------------------------------------------->
+<hr>
+
+<h3>Penalties</h3>
+All solution files (.java) should be placed in a folder called <b>HW3_Lastname</b>. Zip this folder and submit it to Blackboard. 
+
+
+
+<br> 
+ 
+
+
+<ol>
+<li> <font color="red">CODE THAT DOES NOT RUN  due to a SYNTAX ERROR 25%-80% penalty per task. Notice that this penalty is up to 80% now. At this point we expect you are able to understand the syntax and fix such problems.</font></li>
+
+<li> RUN-TIME ERROR FOR INPUT SPECIFICALLY SHOWED AS AN EXAMPLE: 20% of task grade. Runtime-error for grader’s input: 5-20% of task grade (depending on the reason of why it fails).  <br>
+</li>
+<li> **** Code using elements we had not covered at the time the homework was due, receives no credit. 
+
+</li><li> Up to <b>20</b> points will be lost for non-compliance with the submission requirements: folder name, all files in a folder, zipped folder, the compressed file is a zip, the program files have extension .java, ... </li>
+
+<li> Each program must have:
+<ul>
+	<li> description and your name at the top
+	</li><li> comments 
+	</li><li> meaningful variable names 
+	</li></ul>
+	A program missing some or all of these will receive a penalty of up to 10% of the points for that task.</li>
+
+<!--<li> The answers file must be .pdf, .docx or .txt. NO OTHER TYPES of files accepted. -->  
+</ol>
+
+
+<hr>
+
+
+
+
+
+</body></html>

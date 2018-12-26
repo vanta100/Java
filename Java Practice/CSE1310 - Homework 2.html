@@ -1,0 +1,190 @@
+
+<!-- saved from url=(0057)http://vlm1.uta.edu/~alex/courses/1310/homework/hw02.html -->
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+ <title>CSE1310 - Homework 2 </title>
+</head>
+
+<body>
+<h1>Homework 2</h1>
+
+Total points: 100 <br> <br>
+Topics: if statements, string processing.  
+
+
+<br><br>
+All the solution files should include your name and program description at the top. This information will be included as a comment. 
+
+
+
+
+  <hr>  <!--------------------------------------------------->
+
+
+<font color="red"> When your program runs it must look identical as mine (including printing the description text and the <tt>Bye</tt> at the end).</font>
+<hr>  
+Suggested approach in working on the hw: 
+<ol> 
+	<li> Review the relevant lectures, slides and book chapters. Practice on your own AT LEAST what we did in class. Ideally practice other problems from the book.
+	</li><li> Pick a task (the easiest).
+	</li><li> Identify smaller components. E.g. can I copy a letter from a string? Can I copy a substring from a string, Can I capitalize a string? Can I "glue" strings together? Can I display left aligned?  
+</li></ol>
+<!--------------------------------------------------->
+<hr>  
+<h3>Task 1 (25 pts.)  </h3> 
+Create project: HW2_Names
+<br> Submit java file: HW2_Names.java
+<br> Topics: Formated output, string processing
+<br><br>
+Write a program that asks the user for their full name given in the format <i>first last</i>. The program will do the necessary processing and print the name in a table with 3 columns: Last,  First, Initials.
+Requirements/Specifications:
+<ol>
+	<li> Your program run must be identical with the one shown as an example (both in how it reads the input and it on what it prints). The table must have the top and bottom lines as shown.
+	</li><li> The columns for Last and First must have exactly 15 spaces each.
+	</li><li> The data in the columns must be LEFT aligned
+	</li><li> You can assume that the user gives good input: two words separated by one space.
+</li></ol>
+<pre>---- Sample run 1
+Please enter your first and last name: alex stefan
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+|Stefan         |Alex           |A.S.|
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+---- Sample run 2
+Please enter your first and last name: Johnny Depp
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+|Depp           |Johnny         |J.D.|
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+---- Sample run 3 (shows that you capitalize the first letter and copy the remaining part of the name as is.)
+Please enter your first and last name: SAM HOUSTON
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+|HOUSTON        |SAM            |S.H.|
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+</pre>
+
+<b>Extra practice (not for grade)</b>: 
+<br>
+1. Process the remaining part of the name to be lowercase so in the SAM HOUSTON example above it shows <pre>|Houston        |Sam            |S.H.|</pre>
+2. Do the same type of processing for names that include a middle name. You can assume that there will always be three names <i>first middle last</i>
+
+<hr>  <!--------------------------------------------------->
+<h3>Task 2 (25 pts.)  </h3> 
+Create project: HW2_Wiki
+<br> Submit java file: HW2_Wiki.java
+<br><br>
+WIkipedia pages have a specific webpage address. Any address starts with <i>https://en.wikipedia.org/wiki/</i> and then continues with the topic for that page e.g. <i>Computer_science</i>, <i>Java_(programming_language)</i>. See examples below:
+<pre><i>https://en.wikipedia.org/wiki/Computer_science
+https://en.wikipedia.org/wiki/Java_(programming_language)
+https://en.wikipedia.org/wiki/Imagine_Dragons </i>
+</pre>
+ 
+ Write a program that reads a string from the user. If it is a valid wikipedia webpage, it extracts and prints the topic for that page. If it is not a valid address it prints the message <tt>Not a valid wikipedia webpage address.</tt>
+ <br>
+ Hint: How can the fact that all valid addresses start with the same text before the topic name help you extract the topic name?
+ <br> 
+ You do NOT need to handle the case where the webpage address is correct, but it is written in uppercase letters. You can assume it is all lowercase.
+<ul> 
+	<li> the text is all in lowercase and 
+	</li><li> if the address is valid, then it will have at least one more character for the topic. That is, you do not need to handle an input like: <i>https://en.wikipedia.org/wiki/</i>.	
+</li></ul> 
+ <pre>---- Sample run 1 
+This program will extract the topic from a valid Wikipedia webpage address.
+Enter a web address: https://en.wikipedia.org/wiki/Computer_science
+Topic: Computer_science
+Bye.
+
+---- Sample run 2 
+This program will extract the topic from a valid Wikipedia webpage address.
+Enter a web address: http://vlm1.uta.edu/~alex/courses/1310/homework/hw02.html
+Not a valid wikipedia webpage address.
+Bye.
+
+---- Sample run 3
+This program will extract the topic from a valid Wikipedia webpage address.
+Enter a web address: https://en.wikipedia.org/wiki/
+Topic: 
+Bye.
+</pre>
+
+
+<hr>  <!--------------------------------------------------->
+
+
+<h3>Task 3 (25) - pseudocode=&gt; code </h3>   
+Create project: HW2_SwapLetters
+<br> Submit java file: HW2_SwapLetters.java
+<br> Problem R2.23, page 73 (in second edition book, blue ). In the first edition book, it is exercise R2.20 at page 71.
+<br> 
+The problem gives the pseudocode for swapping two letters in a string given the indexes of those letters. (You can use the pseudocode to help you implement the solution, or you can solve it without looking at the pseudocode.)
+<br> You do NOT need to deal with the cases when the indexes are out of bounds or are crossed. That is you do not need to worry about the program crashing.
+Your program should behave like this:
+<pre>---- Sample run  
+This program will read a string and 2 integers and swap the letters at those indexes.
+Enter the string: resting
+Enter the first index: 2
+Enter the second index: 6
+After swapping:   regtins
+Bye
+</pre>
+
+<hr>
+
+<h3>Task 4 (25 pts.)  </h3> 
+Create project: HW2_PhoneNumber
+<br> Submit java file: HW2_PhoneNumber.java
+A phone number has the format (xxx)yyy-zzzz ( e.g.(817)272-7227 ). Write a program that reads a string and formats it as a phone number. First it should check that the string has exactly 10 symbols. If it does, the program will print the formatted version. If the string does not have exactly 10 symbols, print Invalid and do not process it. 
+<br> You do NOT need to verify that the symbols in the string are digits.
+  <pre>---- Sample run 1
+This program will format a string as a phone number.
+Enter the number: 8177263333
+Formatted number: (817)726-3333
+Bye.
+
+---- Sample run 2
+This program will format a string as a phone number.
+Enter the number: 621587
+Not a valid number. Please enter another one: 8172727229
+Formatted number: (817)272-7229
+Bye.
+
+---- Sample run 3 
+This program will format a string as a phone number.
+Enter the number: 653218
+Not a valid number. Please enter another one: 12389128790870328974912
+You missed your second try! No more chances!
+Bye.
+</pre>
+ <b> Extra practice (not for grade)</b>: After the formatted number is displayed, check whether or not it has an Arlington area code: 817 or 682. Display a message about it. 
+<hr>
+
+<h3>Penalties</h3>
+<font color="RED">
+All solution files (.java) should be placed in a folder called <b>HW2_Lastname (e.g. my folder would be called: HW2_Stefan)</b></font>. Zip this folder and submit it to Blackboard. 
+
+<ol>
+<li> CODE THAT DOES NOT RUN  due to a SYNTAX ERROR 25%-50% penalty per task. </li>
+
+<li> RUN-TIME ERROR FOR INPUT SPECIFICALLY SHOWED AS AN EXAMPLE: 20% of task grade. Runtime-error for grader’s input: 5-20% of task grade (depending on the reason of why it fails).  <br>
+</li>
+
+<li> Each program must have:
+<ul>
+	<li> description and your name at the top
+	</li><li> comments 
+	</li><li> meaningful variable names 
+	</li></ul>
+	A program missing some or all of these will receive a penalty of up to 10% of the points for that task.</li>
+
+<li> <font color="red">**** Code using elements we had not covered at the time the homework was due, receives no credit. </font>
+<!--<li> The answers file must be .pdf, .docx or .txt. NO OTHER TYPES of files accepted. -->  
+</li></ol>
+
+
+<hr>
+
+
+
+
+
+</body></html>
