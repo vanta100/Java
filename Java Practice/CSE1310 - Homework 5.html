@@ -1,0 +1,309 @@
+
+<!-- saved from url=(0057)http://vlm1.uta.edu/~alex/courses/1310/homework/hw05.html -->
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+ <title>CSE1310 - Homework 5 </title>
+</head>
+
+<body>
+<a href="http://vlm1.uta.edu/~alex/courses/1310/homework/homework.html">Homework</a>
+<h2>Homework 5</h2>
+
+Topics: strings, loops, nested loops, %.  (100 points)
+
+<br>
+ 
+ <hr>
+ <h3>Task 1 (15 pts) </h3>
+<p>
+Project: HW5_MathOperations
+ <br>
+Write a program that performs the following operations: +, -, *, /, % (as defined by Java). Your program should first read the first number, then the operation, and then the second number. Both numbers are integers. If, for the operation, the user entered one of the symbols shown above, your program should perform the corresponding operation and compute the result.  After that it should print the operation and the result. If the operation is not recognized, the program should display a message about it. You do not need to do any input validation for the integers.
+<br>
+Hints: 
+</p><ol>
+	<li> The operation should be read in as a string. 
+	</li><li> If your program is not reading the operation or the second number properly, and you are using nextLine(), check the page titled "Why nextLine() seems to not work sometimes" from the  "Input and Formatted Output" slides.
+</li></ol>
+<br><br>
+Here are a few sample runs:
+<pre>---- Sample run 1:
+Enter the first number: 6
+Enter the operation: +
+Enter the second number: 10
+6 + 10  =  16
+
+---- Sample run 2:
+Enter the first number: 7
+Enter the operation: /
+Enter the second number: 4
+7 / 4  =  1
+
+---- Sample run 3:
+Enter the first number: 7
+Enter the operation: %
+Enter the second number: 4
+7 % 4  =  3
+
+---- Sample run 4:
+Enter the first number: 9
+Enter the operation: #
+Enter the second number: 8
+This operation is not recognized.
+</pre>
+
+Here are two examples of behavior when the operation is not recognized. Either one of them is fine. <br>
+first:
+<pre>---- Sample run:
+Enter the first number: 9
+Enter the operation: jj
+Enter the second number: 8
+This operation is not recognized.
+</pre>
+
+second:
+<pre>---- Sample run:
+Enter the first number: 9
+Enter the operation: jj
+Enter the second number: 8
+This operation is not recognized.
+<font color="RED">9 jj 8  =  0    </font>
+</pre>
+
+
+<hr> 
+<h3>Task 2 (30 pts) </h3>
+<p>
+Project: HW5_DivisorsA2B
+ <br>
+Write a program that prints the divisors for each number in the range [A,B] (given by the user). 
+</p><ol>
+	<li>You can assume that B&lt;=9999. 	
+	</li><li>Match the output exactly. Reserve the same number of spaces as shown for the leftmost number on each row. 
+	</li><li>The program will print a line of dashes as separator between the rows. The length of this line is also given by the user.
+	</li><li>Print the line of dashes before, between, and at the end of each row as shown in the sample run. 
+</li></ol>	
+<pre>--------  Sample run normal 1
+This program will print the divisors of each number in the [A,B].
+Enter A:5
+Enter B:7
+Enter length of horizontal line:20
+
+--------------------
+   5 : 5, 
+--------------------
+   6 : 2, 3, 6, 
+--------------------
+   7 : 7, 
+--------------------
+Bye
+
+--------  Sample run normal 2
+This program will print the divisors of each number in the [A,B].
+Enter A:7
+Enter B:22
+Enter length of horizontal line:50
+
+--------------------------------------------------
+   7 : 7, 
+--------------------------------------------------
+   8 : 2, 4, 8, 
+--------------------------------------------------
+   9 : 3, 9, 
+--------------------------------------------------
+  10 : 2, 5, 10, 
+--------------------------------------------------
+  11 : 11, 
+--------------------------------------------------
+  12 : 2, 3, 4, 6, 12, 
+--------------------------------------------------
+  13 : 13, 
+--------------------------------------------------
+  14 : 2, 7, 14, 
+--------------------------------------------------
+  15 : 3, 5, 15, 
+--------------------------------------------------
+  16 : 2, 4, 8, 16, 
+--------------------------------------------------
+  17 : 17, 
+--------------------------------------------------
+  18 : 2, 3, 6, 9, 18, 
+--------------------------------------------------
+  19 : 19, 
+--------------------------------------------------
+  20 : 2, 4, 5, 10, 20, 
+--------------------------------------------------
+  21 : 3, 7, 21, 
+--------------------------------------------------
+  22 : 2, 11, 22, 
+--------------------------------------------------
+Bye
+
+
+--------  Sample run special case 1
+This program will print the divisors of each number in the [A,B].
+Enter A:7
+Enter B:5
+Enter length of horizontal line:50
+
+--------------------------------------------------
+Bye
+
+
+--------  Sample run special case 2 
+This program will print the divisors of each number in the [A,B].
+Enter A:9999
+Enter B:9999
+Enter length of horizontal line:50
+
+--------------------------------------------------
+9999 : 3, 9, 11, 33, 99, 101, 303, 909, 1111, 3333, 9999, 
+--------------------------------------------------
+Bye
+</pre>
+
+ 
+<hr>  
+ <h3>Task 3 (25 pts) </h3>
+Project: HW5_Pattern2
+ <br>
+ Write a program that asks the user for 2 numbers, <tt>len</tt> and <tt>repeat</tt>, and prints a pattern of size <tt>len</tt> X <tt>len</tt> as shown. The pattern:
+ <ol>
+	<li> the first line starts with \ and follows with - until the next dash. You can think of this as the 'main' pattern
+	</li><li> the next line has the same pattern but it starts from the first - after the \
+	</li><li> the 2-nd line starts at the 2-nd - after the \.
+	</li><li> and so on.
+	</li><li> (You can think that on each line you have the pattern from the line above but but off by one position.)
+ </li></ol>
+  See the first quiz on loops and nested loops for examples of code that produce similar (but easier) patterns.
+ 
+ <pre> ------- Sample normal run 1
+ This program will print a len X len pattern.
+Enter len:7
+Enter repeat:3
+\--\--\
+--\--\-
+-\--\--
+\--\--\
+--\--\-
+-\--\--
+\--\--\
+Bye
+
+
+------- Sample normal run 2
+This program will print a len X len pattern.
+Enter len:10
+Enter repeat:4
+\---\---\-
+---\---\--
+--\---\---
+-\---\---\
+\---\---\-
+---\---\--
+--\---\---
+-\---\---\
+\---\---\-
+---\---\--
+Bye
+
+------- Sample special case run 1  (not enough length to produce other repetions of the \
+This program will print a len X len pattern.
+Enter len:3
+Enter repeat:5
+\--
+---
+---
+Bye
+ </pre>
+ 
+ 
+ <hr>
+  <h3>Task 4 (30 pts) </h3>
+Project: HW5_ExtractAtSpace
+ <br>
+ Write a program that asks the user for a phrase and extracts and prints one per line the words in that phrase.
+ At the end it should say how many they were.
+ <!--<ol> 	<li> </ol>-->
+ <pre> ------- Sample run 1
+This program will extract words in a phrase entered by the user.It uses spaces as separator for words (no punctuation or anything else.
+Enter the phrase:This is fun!
+Extracted words: 
+This
+is
+fun!
+There were 3 words in your phrase.
+Bye
+
+------- Sample run 2
+This program will extract words in a phrase entered by the user.It uses spaces as separator for words (no punctuation or anything else.
+Enter the phrase:here is,a longer and more.Interesting case
+Extracted words: 
+here
+is,a
+longer
+and
+more.Interesting
+case
+There were 6 words in your phrase.
+Bye
+
+ ------- Sample special case run 1
+This program will extract words in a phrase entered by the user.It uses spaces as separator for words (no punctuation or anything else.
+Enter the phrase:great!
+Extracted words: 
+great!
+There were 1 words in your phrase.
+Bye
+
+ ------- Sample special case run 2  (user enters teh EMPTY string. Hits Enter without typing anything
+This program will extract words in a phrase entered by the user.It uses spaces as separator for words (no punctuation or anything else.
+Enter the phrase:
+Extracted words: 
+
+There were 1 words in your phrase.
+Bye</pre>
+ 
+ Extra: Fix the code to say 0 for the special case 2.
+ 
+ 
+
+<!------------------------------------------------------------------->
+<hr>
+
+<h3>Penalties</h3>
+All solution files (.java) should be placed in a folder called <b>HW5_Lastname</b>. Zip this folder and submit it to Blackboard. 
+
+
+
+<br> 
+ 
+
+
+<ol>
+<li> <font color="red">CODE THAT DOES NOT RUN  due to a SYNTAX ERROR 25%-80% penalty per task. Notice that this penalty is up to 80% now. At this point we expect you are able to understand the syntax and fix such problems.</font></li>
+
+<li> RUN-TIME ERROR FOR INPUT SPECIFICALLY SHOWED AS AN EXAMPLE: 20% of task grade. Runtime-error for grader’s input: 5-20% of task grade (depending on the reason of why it fails).  <br>
+</li>
+<li> **** Code using elements we had not covered at the time the homework was due, receives no credit. 
+
+</li><li> Up to <b>20</b> points will be lost for non-compliance with the submission requirements: folder name, all files in a folder, zipped folder, the compressed file is a zip, the program files have extension .java, ... </li>
+
+<li> Each program must have:
+<ul>
+	<li> description and your name at the top
+	</li><li> comments 
+	</li><li> meaningful variable names 
+	</li></ul>
+	A program missing some or all of these will receive a penalty of up to 10% of the points for that task.</li>
+
+<!--<li> The answers file must be .pdf, .docx or .txt. NO OTHER TYPES of files accepted. -->  
+</ol>
+
+
+<hr>
+
+
+
+
+
+</body></html>
