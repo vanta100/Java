@@ -1,0 +1,143 @@
+
+<!-- saved from url=(0057)http://vlm1.uta.edu/~alex/courses/1310/homework/hw08.html -->
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+ <title>CSE1310 - Homework 8 </title>
+</head>
+
+<body>
+<h1>Homework 8</h1>
+
+Total points: 120 (100 normal points + 20 bonus). Bonus points are earned if the answer for them is correct. <br> 
+Topics: methods, 2D arrays, loop with menu, drawing data.
+
+
+
+  <br>
+ 
+<!------------------------------------------------------------------->
+
+<p></p><p>
+
+</p>
+  
+<!------------------------------------------------------------------->
+
+<hr>
+ <h3>Task 1 (100 pts) </h3>
+ <b>Project: HW8_PlaceQueens</b>
+ <br>
+ <b>Objectives:</b> writing a complex program that includes: updating and printing a 2D table (printed table will have labelled rows and columns), error checking. Practice modularization by having to structure the program using methods.
+ <br><br>
+ This program will maintain and print a chessboard that allows the user to place Queen pieces. The board will show the Queens and the row, column and diagonals the Queens will attack on.
+ <br> 
+ Implement the behaviour shown in the sample run below.
+ <br>
+ Code structure (a method to do the work for each user option):
+  <ul>
+	<li> in <tt>main</tt> - implement a loop that displays the menu information and takes the user option and whatever other data is needed for that option. Next, implement the actions for each choice, using METHODS. DO NOT write a big pile of code in main, but rather call other methods to do the work. Suggested method break-up is given below. 
+	<br>Note that since the same board must be used for as part of the actions for more than one option, the board object should be in main and passed as argument to other methods to work with it. 	
+	</li><li> a method to create and return a board of a given dimension. 
+	</li><li> a method to print the board.  (The board will be passed as an argument to this method. Same for the others.)
+	</li><li> a method to reset the board
+	</li><li> a method to add a queen on the board at a given row and column and show with a * in each cell that it can attack. The row and column will be given as arguments, NOT read from the user.
+	</li><li> a method to count queens on the board 
+	</li><li> a method to delete a queen from a specific row and column. In addition to the checks for valid board, valid row and valid column, this method should also check that there is a queen at the given position. 	
+	<br> You cannot simply delete a queen from the existing board because it is not easy to know which * to remove and which to keep since another queen could be attaching on the same row as the one you are removing (see sample run). Solve this by resetting the board and replacing the queens that should remain.
+	<br> Take advantage of already implemented methods such as reset board and add queen. (Note how the add queen method can be reused here because the row and column are given as arguments as opposed to read from the user inside the method.)
+	</li></ul>
+	Other specifications:
+	<ul> 
+		<li> All the data read from the user should be read in the <tt>main</tt> method and passed to the others as arguments. 
+		</li><li> You can assume the board is always square.
+		</li><li> The table size can be larger than 10.
+		</li><li> The table cells should be displayed on 3 spaces. 
+		</li><li> The * must be centered in the cell. 		
+		</li><li> You can represent the board as a 2D of whatever type you prefer (int, char, String).
+		</li><li> A queen attacks on the row, column and diagonal that it is on.
+		</li><li> The program should be case insensitive. If the user enters upper case letters (Q/R/C...) it should work just as it does with the lower case (see <tt>Enter option: R</tt> below).
+		</li><li> The methods should NOT crash. For example if print is called before a board is made, it should not crash. (See run3.txt below.) You do not need to produce identical error messages as mine, but the program should not crash (e.g. with index out of bound error). 
+		<br>  The create board method should return <tt>null</tt> if asked to create a board  of size 0 or negative. 
+		</li><li>  The * and Q are part of the data in the matrix (however you choose to represent them)﻿﻿﻿﻿﻿﻿. The | is part of how you choose to DISPLAY the matrix. The vertical bar, |, should NOT be recorded as data in the matrix (it makes your processing harder, and the code less flexible. For example, what if I asked you to store the matrix as a matrix of int? Or what if when the matrix is printed, the width of each cell is CHOSEN BY THE USER? In that case you cannot hardcode a specific spacing such as: " * |". In short, it is NOT good style to have entries in your matrix such as " * |" or " Q |".
+		</li><li> Suggested code organization for the methods:
+<pre>public static ...... {
+  if (bad_data1) {
+    //possibly print a message  
+    return;
+  }	
+
+  code_that_is_now_safe	
+}
+</pre>		
+	</li></ul>
+
+See sample runs:
+<ul>
+ <li> <a href="http://vlm1.uta.edu/~alex/courses/1310/homework/hw8/general.txt">general.txt</a> - for general behaviour
+ </li><li> <a href="http://vlm1.uta.edu/~alex/courses/1310/homework/hw8/insensitive.txt">insensitive.txt</a> - for case insensitive commands
+ </li><li> <a href="http://vlm1.uta.edu/~alex/courses/1310/homework/hw8/invalid.txt">invalid.txt</a> - for invalid row or column given by the user.
+ </li><li> <a href="http://vlm1.uta.edu/~alex/courses/1310/homework/hw8/delete.txt">delete.txt</a> - for delete queen examples
+</li></ul>
+
+Suggested: start with the menu,argument passing and error checking and you slowly add the functionality. Use method stubs (i.e. a placeholder, or a "dummy" method that matches the signature needed). Ask in class if you want to discuss method stubs further.
+<hr>
+<h3>Task 2 - Written part (20 points)</h3>
+Submit the answers for this part in a document called <b>HW8_written.pdf</b>. It must be an electronic document of type pdf, but it can be a scan or photo of a handwritten paper.
+<br><br>
+
+
+<b>Part b (20 points)</b>
+<br>
+Draw the data for the <b>delete queen method</b> that is called FIRST in the delete.txt sample run. (You have the 3 queens that were added and need to delete the queen at row 5 and column 1.) Try to use the data drawings to show how your method works.
+
+<hr>
+
+<!--
+<b>Extra part</b>
+Add an option for removing a queen. 
+
+<b>Sample run of Extra part </b> 
+<pre>
+</pre>
+<hr>
+-->
+
+<h3>Penalties</h3>
+All solution files should be placed in a folder called <b>HW8_Lastname</b>. Zip this folder and submit it to Blackboard. 
+
+
+
+<br> 
+ 
+
+
+<ol>
+<li> The submitted homework must use methods as required. 
+
+
+</li><li>CODE THAT DOES NOT RUN  due to a SYNTAX ERROR 25%-80% penalty per task. Notice that this penalty is up to 80% now. At this point I expect you are able to understand the syntax and fix such problems.</li>
+
+<li> RUN-TIME ERROR FOR INPUT SPECIFICALLY SHOWED AS AN EXAMPLE: 20% of task grade. Runtime-error for grader’s input: 5-20% of task grade (depending on the reason of why it fails).  <br>
+</li>
+<li> **** Code using elements we had not covered at the time the homework was due, receives no credit. 
+
+</li><li> Up to <b>20</b> points will be lost for non-compliance with the submission requirements: folder name, all files in a folder, zipped folder, the compressed file is a zip, the program files have extension .java, ... </li>
+
+<li> Each program must have:
+<ul>
+	<li> description and your name at the top
+	</li><li> comments 
+	</li><li> meaningful variable names 
+	</li></ul>
+	A program missing some or all of these will receive a penalty of up to 10% of the points for that task.</li>
+<!--<li> The answers file must be .pdf, .docx or .txt. NO OTHER TYPES of files accepted. -->  
+</ol>
+
+
+<hr>
+
+
+
+
+
+
+</body></html>

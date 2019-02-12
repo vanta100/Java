@@ -1,0 +1,326 @@
+
+<!-- saved from url=(0057)http://vlm1.uta.edu/~alex/courses/1310/homework/hw07.html -->
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+ <title>CSE1310 - Homework 7 </title>
+</head>
+
+<body>
+<h1>Homework 7</h1>
+
+Total points: 100 <br> <br>
+Topics: methods, arrays, error checking, program tracing.  
+
+
+
+  <br>
+ 
+<!------------------------------------------------------------------->
+
+
+<hr>
+<h3>Self check 1 - not graded. do not submit it</h3>
+What will this program print? (What is the output of this program?)
+<pre>public class task1
+{
+  public static void print_int_matrix(String name, int[] a)
+  {
+    System.out.printf("%7s: ", name);
+    for (int i = 0; i &lt; a.length; i++)
+    {
+      System.out.printf("%7d", a[i]);
+    }
+    System.out.printf("\n");
+  }
+  
+  public static void foo(int[] x, int[] y)
+  {
+    for (int i = 0; i &lt; x.length; i++)
+    {
+      x[i] = 100 + x[i];
+    }
+  
+    int[] q = {1, 2, 3};
+    y = q;
+  }
+  
+  public static void main(String[] args)
+  {
+    int[] a = {3, 2, 5};
+    int[] b = a;
+    int[] c = {3, 2, 5};
+    int[] d = c;
+      
+    foo(b, d);
+    print_int_matrix("a", a);
+    print_int_matrix("c", c);
+  }
+}
+</pre>
+
+<p>
+
+
+
+</p><p>
+
+</p>
+  
+<!------------------------------------------------------------------->
+
+<hr>
+ <h3>Task 1 (100 pts) </h3>
+ Objectives: writing a complex program that includes: reading and printing data, computing new data, updating existing data, error checking. Practice modularization by having to structure the program using methods with specific signatures.
+ <br>
+ Project: HW7_Chart
+ <br>
+ This program will read deal with printing a chart and reading and updating the data for the chart.
+ <br> 
+ Implement the following methods:
+ <ul>
+	<li><tt>void printHorizChart(int[] counts, String[] items)</tt> - prints the items and as many stars as the value associated with each item. The bottom row will show the corresponding number (like and x-axis): 4 spaces are allocated for printing a number. The stars should be aligned with the numbers. See sample run.
+	<br> <br>
+	The left column displaying the item names must be adjusted based on the current names. For example if "Strawberry" was not there it would be:
+	<pre>Apple |   *
+Banana|   *   *
+Grape |   *   *   *   
+Pear  |   *
+ct    |   1   2   3  ....
+	</pre>	
+	</li><li><font color="red"><tt>String itemMaxCount(int[] counts, String[] items)</tt> Finds and returns the item that has the largest count. If two items have that same largest count, print the first one. E.g. for 
+	<pre>Apple |   *
+Banana|   *   *   *   *
+Grape |   *   *   *   *
+Pear  |   *
+ct    |   1   2   3   4 ....</pre>
+		it will return Banana. </font>
+	<br> <br>	
+	</li><li><tt>int[] getPercentages(int[] counts)</tt> - create and return an int array with corresponding percentages for counts. Use the formula: 
+	<br>
+	item_percentage = (item_count * 100)/sum_of_counts
+	<!--</br>using the above formula, item_percentage is a real number. Round it to the closest integer (What method from the Math library does that?-->
+	<br> for example if the 5 count values are: 1,2,1,5,1, the sum of counts is: 1+2+1+5+1 = 10 and the percentage corresponding to value 2 is: 2*100/10 = 20. See the printed charts for Banana for counts (see 2 stars) and percentages (see 20 stars).
+	<br>See in the sample run below that both 1,2,1,5,1 and 100,200,100,500,100 resulted in the same percentage values:10,20,10,50,10.
+	</li><li><tt>int[] readCounts()</tt> - reads count data from the user. The user will give all the data on one line.
+	</li><li><tt>String[] readItems()</tt> - reads items data from the user. The user will give all the data on one line. NOTE that you MUST read the Strings with kb.next() not with kb.nextLine(). Why?
+	</li><li><tt>void updateCounts(int[] counts, String[] items, String givenItem, int value)</tt> - if <tt>givenItem</tt> is one of the strings in <tt>items</tt>, update the count corresponding to it. <br>If <tt>counts</tt> and <tt>items</tt> do not have the same length or if <tt>givenItem</tt> is not in the list, it will print an error message and NOT update anything. 
+	<br>When comparing the <tt>givenItem</tt> with the Strings in <tt>items</tt>, do a case-sensitive comparison.
+	</li><li>in <tt>main</tt> the program will <b>repeat</b> the following sequence of actions 
+            <ul>
+				<li> readItems
+				</li><li> readCounts
+				</li><li> print the horizontal chart with counts				
+				</li><li> <font color="red">print the item that has the largest count </font>
+				<br><br>
+				</li><li> compute percentages
+				</li><li> print the horizontal chart with percentages        
+				<br><br>
+				</li><li> prompt the user for an item name and a value 
+				</li><li> call the updateCounts with the above item and value 
+				</li><li> print the horizontal chart of counts 
+				</li><li> <font color="red">print the item that has the largest count</font>
+				<br><br>
+				</li><li> prompt the user if they want to continue. Must use 0 (zero) for No and 1 for Yes.			
+			</li></ul>
+	</li><li> Other issues: it is ok to move the empty line from before the printed charts if it makes the output easier to read.
+	</li><li> FOR FUN, NOT required: <tt>void printHorizChart(int[] counts, String[] items)</tt> - prints a vertical chart
+ </li></ul>
+<pre>---------------Sample run (this is a single run of the program)
+Enter the number of items and their names (N item1 item2 ... itemN): 5 Apple Banana Strawberry Grape Pear 
+Reading the items finished. 
+Enter the data for the counts array in format (N count1 count2 ... countN): 5 1 2 1 5 1
+Reading the counts finished. 
+
+Apple     |   *
+Banana    |   *   *
+Strawberry|   *
+Grape     |   *   *   *   *   *
+Pear      |   *
+ct        |   1   2   3   4   5   6   7   8   9  10  11  12  13  14  15  16  17  18  19  20  21  22  23  24  25  26  27  28  29  30  31  32  33  34  35  36  37  38  39  40  41  42  43  44  45  46  47  48  49  50  51  52  53  54  55  56  57  58  59  60  61  62  63  64  65  66  67  68  69  70  71  72  73  74  75  76  77  78  79  80  81  82  83  84  85  86  87  88  89  90  91  92  93  94  95  96  97  98  99 100
+<font color="red">Item with largest count: Grape</font>
+
+Compute and print percentages chart
+
+Apple     |   *   *   *   *   *   *   *   *   *   *
+Banana    |   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *
+Strawberry|   *   *   *   *   *   *   *   *   *   *
+Grape     |   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *
+Pear      |   *   *   *   *   *   *   *   *   *   *
+ct        |   1   2   3   4   5   6   7   8   9  10  11  12  13  14  15  16  17  18  19  20  21  22  23  24  25  26  27  28  29  30  31  32  33  34  35  36  37  38  39  40  41  42  43  44  45  46  47  48  49  50  51  52  53  54  55  56  57  58  59  60  61  62  63  64  65  66  67  68  69  70  71  72  73  74  75  76  77  78  79  80  81  82  83  84  85  86  87  88  89  90  91  92  93  94  95  96  97  98  99 100
+Enter item and value to update the counts: Banana 10
+
+
+Apple     |   *
+Banana    |   *   *   *   *   *   *   *   *   *   *   *   *
+Strawberry|   *
+Grape     |   *   *   *   *   *
+Pear      |   *
+ct        |   1   2   3   4   5   6   7   8   9  10  11  12  13  14  15  16  17  18  19  20  21  22  23  24  25  26  27  28  29  30  31  32  33  34  35  36  37  38  39  40  41  42  43  44  45  46  47  48  49  50  51  52  53  54  55  56  57  58  59  60  61  62  63  64  65  66  67  68  69  70  71  72  73  74  75  76  77  78  79  80  81  82  83  84  85  86  87  88  89  90  91  92  93  94  95  96  97  98  99 100
+<font color="red">Item with largest count: Banana</font>
+
+Do you want to repeat these steps? (0-No/1-Yes): 1
+Enter the number of items and their names (N item1 item2 ... itemN): 5 Apple Banana Strawberry Grape Pear 
+Reading the items finished. 
+Enter the data for the counts array in format (N count1 count2 ... countN): 5 100 200 100 500 100
+Reading the counts finished. 
+
+Apple     |   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *
+Banana    |   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *
+Strawberry|   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *
+Grape     |   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *
+Pear      |   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *
+ct        |   1   2   3   4   5   6   7   8   9  10  11  12  13  14  15  16  17  18  19  20  21  22  23  24  25  26  27  28  29  30  31  32  33  34  35  36  37  38  39  40  41  42  43  44  45  46  47  48  49  50  51  52  53  54  55  56  57  58  59  60  61  62  63  64  65  66  67  68  69  70  71  72  73  74  75  76  77  78  79  80  81  82  83  84  85  86  87  88  89  90  91  92  93  94  95  96  97  98  99 100
+<font color="red">Item with largest count: Grape</font>
+
+Compute and print percentages chart
+
+Apple     |   *   *   *   *   *   *   *   *   *   *
+Banana    |   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *
+Strawberry|   *   *   *   *   *   *   *   *   *   *
+Grape     |   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *
+Pear      |   *   *   *   *   *   *   *   *   *   *
+ct        |   1   2   3   4   5   6   7   8   9  10  11  12  13  14  15  16  17  18  19  20  21  22  23  24  25  26  27  28  29  30  31  32  33  34  35  36  37  38  39  40  41  42  43  44  45  46  47  48  49  50  51  52  53  54  55  56  57  58  59  60  61  62  63  64  65  66  67  68  69  70  71  72  73  74  75  76  77  78  79  80  81  82  83  84  85  86  87  88  89  90  91  92  93  94  95  96  97  98  99 100
+Enter item and value to update the counts: Sage 1
+
+   Error. No update will be made. Not found in items: Sage. 
+
+Apple     |   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *
+Banana    |   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *
+Strawberry|   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *
+Grape     |   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *
+Pear      |   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *
+ct        |   1   2   3   4   5   6   7   8   9  10  11  12  13  14  15  16  17  18  19  20  21  22  23  24  25  26  27  28  29  30  31  32  33  34  35  36  37  38  39  40  41  42  43  44  45  46  47  48  49  50  51  52  53  54  55  56  57  58  59  60  61  62  63  64  65  66  67  68  69  70  71  72  73  74  75  76  77  78  79  80  81  82  83  84  85  86  87  88  89  90  91  92  93  94  95  96  97  98  99 100
+<font color="red">Item with largest count: Grape</font>
+
+Do you want to repeat these steps? (0-No/1-Yes): 1
+Enter the number of items and their names (N item1 item2 ... itemN): 5 Apple Banana Strawberry Grape Pear 
+Reading the items finished. 
+Enter the data for the counts array in format (N count1 count2 ... countN): 5 1 2 1 5 1
+Reading the counts finished. 
+
+Apple     |   *
+Banana    |   *   *
+Strawberry|   *
+Grape     |   *   *   *   *   *
+Pear      |   *
+ct        |   1   2   3   4   5   6   7   8   9  10  11  12  13  14  15  16  17  18  19  20  21  22  23  24  25  26  27  28  29  30  31  32  33  34  35  36  37  38  39  40  41  42  43  44  45  46  47  48  49  50  51  52  53  54  55  56  57  58  59  60  61  62  63  64  65  66  67  68  69  70  71  72  73  74  75  76  77  78  79  80  81  82  83  84  85  86  87  88  89  90  91  92  93  94  95  96  97  98  99 100
+<font color="red">Item with largest count: Grape</font>
+
+Compute and print percentages chart
+
+Apple     |   *   *   *   *   *   *   *   *   *   *
+Banana    |   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *
+Strawberry|   *   *   *   *   *   *   *   *   *   *
+Grape     |   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *
+Pear      |   *   *   *   *   *   *   *   *   *   *
+ct        |   1   2   3   4   5   6   7   8   9  10  11  12  13  14  15  16  17  18  19  20  21  22  23  24  25  26  27  28  29  30  31  32  33  34  35  36  37  38  39  40  41  42  43  44  45  46  47  48  49  50  51  52  53  54  55  56  57  58  59  60  61  62  63  64  65  66  67  68  69  70  71  72  73  74  75  76  77  78  79  80  81  82  83  84  85  86  87  88  89  90  91  92  93  94  95  96  97  98  99 100
+Enter item and value to update the counts: banana 10
+
+   Error. No update will be made. Not found in items: banana. 
+
+Apple     |   *
+Banana    |   *   *
+Strawberry|   *
+Grape     |   *   *   *   *   *
+Pear      |   *
+ct        |   1   2   3   4   5   6   7   8   9  10  11  12  13  14  15  16  17  18  19  20  21  22  23  24  25  26  27  28  29  30  31  32  33  34  35  36  37  38  39  40  41  42  43  44  45  46  47  48  49  50  51  52  53  54  55  56  57  58  59  60  61  62  63  64  65  66  67  68  69  70  71  72  73  74  75  76  77  78  79  80  81  82  83  84  85  86  87  88  89  90  91  92  93  94  95  96  97  98  99 100
+<font color="red">Item with largest count: Grape</font>
+
+Do you want to repeat these steps? (0-No/1-Yes): 1
+Enter the number of items and their names (N item1 item2 ... itemN): 1 Grape
+Reading the items finished. 
+Enter the data for the counts array in format (N count1 count2 ... countN): 5 1 2 1 5 1
+Reading the counts finished. 
+
+   Error in printHorizChart: arrays do not have the same number of items
+
+   <font color="red">Error in itemMaxCount: arrays do not have the same number of items</font>
+
+Compute and print percentages chart
+
+   Error in printHorizChart: arrays do not have the same number of items
+
+Enter item and value to update the counts: Grape 4
+
+   Error in UpdateCounts: arrays do not have the same number of items
+
+   Error in printHorizChart: arrays do not have the same number of items
+
+Do you want to repeat these steps? (0-No/1-Yes): 0
+</pre>
+
+<hr>
+<b>Sample run of Extra part (chart printed vertically)</b> 
+<pre> 30|           *                       
+ 29|           *                       
+ 28|           *                       
+ 27|           *                       
+ 26|           *                       
+ 25|           *                       
+ 24|           *                       
+ 23|           *                       
+ 22|           *                       
+ 21|           *                       
+ 20|           *                *      
+ 19|           *                *      
+ 18|           *                *      
+ 17|           *                *      
+ 16|           *                *      
+ 15|           *                *      
+ 14|           *                *      
+ 13|           *                *      
+ 12|           *                *      
+ 11|           *                *      
+ 10|           *                *      
+  9|           *                *      
+  8|           *                *      
+  7|           *                *      
+  6|           *                *      
+  5|    *      *                *      
+  4|    *      *                *    * 
+  3|    *      *          *     *    * 
+  2|    *      *          *     *    * 
+  1|    *      *          *     *    * 
+   |Apple Banana Strawberry Grape Pear
+</pre>
+<hr>
+
+<h3>Penalties</h3>
+All solution files (.java) should be placed in a folder called <b>HW7_Lastname</b>. Zip this folder and submit it to Blackboard. 
+
+
+
+<br> 
+ 
+
+
+<ol>
+<li> The submitted homework must use methods as required. 
+
+
+</li><li>CODE THAT DOES NOT RUN  due to a SYNTAX ERROR 25%-80% penalty per task. Notice that this penalty is up to 80% now. At this point I expect you are able to understand the syntax and fix such problems.</li>
+
+<li> RUN-TIME ERROR FOR INPUT SPECIFICALLY SHOWED AS AN EXAMPLE: 20% of task grade. Runtime-error for grader’s input: 5-20% of task grade (depending on the reason of why it fails).  <br>
+</li>
+<li> **** Code using elements we had not covered at the time the homework was due, receives no credit. 
+
+</li><li> Up to <b>20</b> points will be lost for non-compliance with the submission requirements: folder name, all files in a folder, zipped folder, the compressed file is a zip, the program files have extension .java, ... </li>
+
+<li> Each program must have:
+<ul>
+	<li> description and your name at the top
+	</li><li> comments 
+	</li><li> meaningful variable names 
+	</li></ul>
+	A program missing some or all of these will receive a penalty of up to 10% of the points for that task.</li>
+<!--<li> The answers file must be .pdf, .docx or .txt. NO OTHER TYPES of files accepted. -->  
+</ol>
+
+
+<hr>
+
+
+
+
+
+
+</body></html>

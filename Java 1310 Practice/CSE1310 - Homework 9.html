@@ -1,0 +1,195 @@
+
+<!-- saved from url=(0057)http://vlm1.uta.edu/~alex/courses/1310/homework/hw09.html -->
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+ <title>CSE1310 - Homework 9 </title>
+</head>
+
+<body>
+<h1>Homework 9</h1>
+
+Total points: 100 <br> <br>
+Topics: methods, 2D arrays, File IO, multiple step processing(data read =&gt; avg 1, avg 2 =&gt; min, =&gt; letter =&gt; print ; print in order).
+<br><br>
+Independent work
+
+<br><br>
+All the solution files should include your name, and program description at the top. 
+
+<hr>
+
+<h3>Task 1 (100 pts.)</h3>
+
+Project name HW9_Grades
+<br> Write a program that computes the letter grade for each student in a class, based on exam and homework scores for that student.
+
+
+The grades are stored in a CSV file, following this format:
+<ul>
+
+<li> The top row contains column names.
+
+</li><li> After that, each row contains data for a specific student.
+
+<ul>
+
+<li> Column 0 contains first names.
+
+</li><li> Column 1 contains last names.
+
+</li><li> Columns 2, 3, 4 contain exam scores.
+
+</li><li> Columns 5 to 11 contain homework scores.
+
+</li></ul>
+
+</li></ul>
+
+An example of such a CSV file is <a href="http://vlm1.uta.edu/~alex/courses/1310/homework/HW9/data1.txt">data1.txt</a>. <font color="red">You should run and test your program using the data1.txt file. However your program must run with files with other names and other number of lines of text in the file, so experiment with that as well.-Updated 11/13/2018</font>
+
+<p>
+
+The program will read from the user three filenames: <tt>input_name, out_name, pretty_name</tt> (these filenames include the ".txt" extension) load the data from the input file, compute the homework and exam average, class score, and letter grade for each student and finally print to two files and also to the screen. 
+</p><ul>
+
+<li>  <code>input_name</code> is the name of the CSV file containing the grade data that your code needs to process, e.g. "data1.txt".
+
+<p>
+
+</p></li><li> <code>out_name</code> is the name of an output CSV file, where your code will save the grade data that you have computed. This output CSV file will have a top row with column names, and then one row per student. The file will have five columns:
+
+<ul> 
+
+<li> Column 0 contains the name of the student (concatenation of first name and last name, separated by space).
+
+</li><li> Column 1 contains the average exam score for that student.
+
+</li><li> Column 2 contains the average homework score for that student.
+
+</li><li> Column 3 contains the smallest value between the exam average score and the homework average score for that student.
+
+</li><li> Column 4 contains the letter grade, by converting the value at column 3, using standard threshold (90 and above is A, 80 to 89.99 is B, 70 to 79.99 is C, 60 to 69.99 is D, below 60 is F).
+
+</li></ul>
+
+An example output CSV file following these specifications is <a href="http://vlm1.uta.edu/~alex/courses/1310/homework/HW9/out1.txt">out1.txt</a>.
+
+<p>
+
+</p></li><li> <code>pretty_name</code> is the name of an output text file, where your code will print out the grade data that you have computed, in a nice, tabular format that is easy for humans to read. This output text file will have a top row with column names, and then one row per student. The file will have the same five columns as the output CSV file described above. However, each column will be aligned. To obtain aligned columns, my solution uses this code to print each row:
+<pre>out.printf("%20s: %10.2f, %8.2f, %9.2f, %s\r\n",
+           name, exam_score, hw_score, min_score, grade);
+</pre>
+
+An example output CSV file following these specifications is <a href="http://vlm1.uta.edu/~alex/courses/1310/homework/HW9/pretty1.txt">pretty1.txt</a>.
+
+</li><li><font color="red">In your program use JUST THE FILENAME, NOT the filepath. If you use the filepath, that is specific to your computer and the program will crash when compiled and run by the TA. - Updated 11/13/2018</font>
+
+</li><li>The program should produce files that look EXACTLY like files <a href="http://vlm1.uta.edu/~alex/courses/1310/homework/HW9/out1.txt">out1.txt</a> and <a href="http://vlm1.uta.edu/~alex/courses/1310/homework/HW9/pretty1.txt">pretty1.txt</a> obtained using my solution. Use the same format, column names and spacing as you see in these example output files.
+
+
+</li><li> The program will also print to the screen the student names and letter grades sorted by letter grade. See sample run below.
+</li></ul>
+<pre>Please enter the name of the input file: data1.txt
+Please enter the name of the output CSV file: out1.txt
+Please enter the name of the output pretty-print file: pretty1.txt
+
+Sorted by letter grade:
+A Majorie Granvold
+A Ricky Knoechel
+A Agatha Keckler
+A Helene Karow
+A Shonta Bourek
+A Val Royal
+B Elisa Oltz
+B Setsuko Lovera
+B Abigail Greep
+B Corie Brazen
+B Juan Rohdenburg
+B Novella Oros
+B Mikel Burleigh
+B Lucy Rhodd
+C Leonard Havers
+C Daphine Polaco
+C Era Deming
+C Michal Slentz
+C Orville Samit
+C Estelle Veazey
+C Jodie Adolfo
+C Emelia Toney
+C Sacha Chee
+C Salvador Gretzner
+D Gwyneth Marsico
+D Dona Tufte
+D Ervin Kenison
+D Renato Urch
+D Roselee Lienhard
+D Austin Holznecht
+D Julio Lackner
+F Ping Milledge
+F Franklyn Degnim
+F An Corvera
+F Ayanna Pensiero
+F Blythe Threet
+F Sammie Wachs
+F Tanya Quinlisk
+F Marion Coltrin
+F Hyon Anglemyer
+
+
+Exiting...
+</pre>
+
+<p>
+
+
+
+</p><hr>
+
+
+
+<h3>Suggestions</h3>
+
+Pay close attention to all specifications on this page, including 
+file names and submission format. Even in cases where the program works correctly, 
+points will be taken off for non-compliance with the instructions given on this 
+page (such as wrong file names, wrong compression format for the submitted code, 
+and so on). The reason is that non-compliance with the instructions makes the 
+grading process significantly (and unnecessarily) more time consuming. Contact the 
+instructor or TA if you have any questions. 
+
+<h3>How to submit</h3>
+
+
+<font color="red">Put the HW9_Grades.java file and the input data file, data1.txt, in a folder called HW9_Lastname, zip the folder and submit it. You do not need to submit the output files. Those will be created by your program as we run it.</font>
+
+<hr>
+
+
+<h3>Penalties</h3>
+<ol>
+<li> The submitted homework must use methods as required. 
+</li><li>CODE THAT DOES NOT RUN  due to a SYNTAX ERROR 25%-80% penalty per task. Notice that this penalty is up to 80% now. At this point I expect you are able to understand the syntax and fix such problems.</li>
+
+<li> RUN-TIME ERROR FOR INPUT SPECIFICALLY SHOWED AS AN EXAMPLE: 20% of task grade. Runtime-error for grader’s input: 5-20% of task grade (depending on the reason of why it fails).  <br>
+</li>
+<li> **** Code using elements we had not covered at the time the homework was due, receives no credit. 
+
+</li><li> Up to <b>20</b> points will be lost for non-compliance with the submission requirements: folder name, all files in a folder, zipped folder, the compressed file is a zip, the program files have extension .java, ... </li>
+
+<li> Each program must have:
+<ul>
+	<li> description and your name at the top
+	</li><li> comments 
+	</li><li> meaningful variable names 
+	</li></ul>
+	A program missing some or all of these will receive a penalty of up to 10% of the points for that task.</li>
+<!--<li> The answers file must be .pdf, .docx or .txt. NO OTHER TYPES of files accepted. -->  
+</ol>
+
+<hr>
+
+
+<br>
+
+
+</body></html>

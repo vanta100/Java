@@ -1,0 +1,130 @@
+
+<!-- saved from url=(0063)http://vlm1.uta.edu/~alex/courses/1310/homework/practice10.html -->
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+ <title>CSE1310 - Practice 10 </title>
+</head>
+
+<body>
+<h1>Practice 10</h1>
+
+<!--Total points: 100 </br> </br>-->
+Topics: methods, 2D arrays, File IO.
+<br><br>
+<!--Independent work-->
+
+<br><br>
+All the solution files should include your name, and program description at the top. 
+
+<hr>
+
+<h3>Task 1 </h3>
+Project name: HW10_Mixed.
+<br>
+Write one program that implements the following methods and calls in <tt>main</tt>:
+
+
+<ol>		
+	<li> A method called <tt>indexOf1D</tt> that takes as arguments 2 arrays of integers called bigArray and smallArray, that implements for arrays of integers what indexOf does for strings. It checks if smallArray is a subarray of bigArray. If it is not, it returns -1. If it is a subarray, the method returns the index of bigArray where smallArray starts.  For example: 
+	<br>indexOf1D({3,1,5,7,2,3,1}, {5,7,2,3}) returns 2 , but  
+	<br>indexOf1D({3,1,5,7,2,3,1}, {5,7,3})   returns -1 because the sequence 5,7,3 is not in {3,1,5,7,2,3,1}.
+	</li><li> A method called <tt>indexOf2D</tt> that takes as arguments 2 2D <b>arrays</b> of integers called bigArray and smallArray, that implements for 2D arrays what <tt>indexOf1D</tt> does for 1D arrays of integers. It checks if smallArray is a "patch" of bigArray. If it is not, it returns -1. If it is a subarray, the method returns the row and column indexes of bigArray where smallArray starts. For example: 
+	<pre> 
+	if bigArray is:
+	3,1,5,7,2,3,1
+	4,1,7,2,8,5,0
+	1,2,3,9,0,2,1
+	</pre>
+	and smallArrays is:
+	<pre>	5,7,2,3
+	7,2,8,5
+	</pre>
+	The method will return indexes 0 and 2. You cannot return 2 numbers as 2 separate entities. You must return them as an array of int or an ArrayList.
+	<br>If the small array is not a 'patch' of the bigArray, return -1 and -1.
+	<br><font color="RED"> Hint: use a helper method that checks that an array overlaps at row, r, and column c. </font>  
+	</li><li> A method called <tt>convert10ToB(int N, int B)</tt> that takes as arguments a number, N, (assumed in base 10) and another number B that expresses the base. You can assume that B is at most 16. The method can have any return type that you want (int, String, array, ArrayList). If called with B&gt;16 the method will print an error message.
+	Example 1:
+	<pre>	Enter N: 109
+	Enter B: 2
+	109 in base 2 is: 1101101
+	</pre>
+	Additional example 2:
+	<pre>	Enter N: 618
+	Enter B: 5
+	618 in base 5 is: 4433
+	</pre>
+	Additional example 3:
+	<pre>	Enter N: 7132
+	Enter B: 16
+	7132 in base 16 is: 1BDC
+	</pre>
+
+	</li><li> A method called <tt>reverseLines</tt> that takes as argument a filename, <i>fnm</i> (e.g. "data1"), and creates another file, <i>fnm_out.txt</i> (e.g. "data1_out.txt"), reverses each line from data1.txt and prints the lines in reverse order in data1_out.txt. For example if a file data1.txt contains text:
+	<pre>	cats, dogs, mice
+	tulip
+	head, nose
+	5 6 1 2
+	</pre>
+	after the method is called for "data1.txt" a new file called "data1_out.txt" will be created and it will have text:
+	<pre>	2 1 6 5	
+	eson ,daeh
+	pilut
+	ecim ,sgod ,stac
+	</pre>
+</li></ol>
+
+<font color="red"><b>In order to call these methods from main, you can hardcode the arrays (in main, NOT IN THE METHODS), but allow the user to enter the file name with the data.</b> </font>
+
+<br> The file data1.txt is <a href="http://vlm1.uta.edu/~alex/courses/1310/homework/hw10/data1.txt">here</a>.
+
+
+<hr>
+
+
+
+<!--
+<h3>Suggestions</h3>
+
+Pay close attention to all specifications on this page, including 
+file names and submission format. Even in cases where the program works correctly, 
+points will be taken off for non-compliance with the instructions given on this 
+page (such as wrong file names, wrong compression format for the submitted code, 
+and so on). The reason is that non-compliance with the instructions makes the 
+grading process significantly (and unnecessarily) more time consuming. Contact the 
+instructor or TA if you have any questions. 
+
+<h3>How to submit</h3>
+
+<p>
+**** The assignment should be submitted via <a href="http://elearn.uta.edu">Blackboard</a>. 
+</br>
+<font color = "red">Put the HW10_Mixed.java file and the input data file, data1.txt, in a folder called hw10, zip the folder and submit hw10.zip.  You do not need to submit the output files. Those will be created by your program as we run it.</font>
+<hr>
+<h3>Penalties</h3>
+All files must be placed in a  folder named hw10 . Zip that folder and email the zipped file.
+</br> Up to <b>7 points</b> will be lost for non-compliance with the submission requirements: folder name, all files in a folder, zipped folder, the compressed file is a zip, the program files have extension .java, program, your name and the program description at the top,...
+
+
+<ol>
+	
+<font color = red>
+<li>CODE THAT DOES NOT RUN  due to a SYNTAX ERROR 25%-70% penalty per task.  Note that the maximum penalty is 70%.</li>
+</font>
+
+<li> RUN-TIME ERROR FOR INPUT SPECIFICALLY SHOWED AS AN EXAMPLE: 20% of task grade. Runtime-error for grader’s input: 5-20% of task grade (depending on the reason of why it fails).  </br>
+</li>
+
+<li> A program that has no comments and/or meaning variable names receives a penalty of 10% of the points per task. </li>
+
+<li> **** Code using elements we had not covered at the time the homework was due receives no credit. 
+</ol>
+</font>
+-->
+
+
+<hr>
+
+
+<br>
+
+
+</body></html>

@@ -1,0 +1,402 @@
+
+<!-- saved from url=(0057)http://vlm1.uta.edu/~alex/courses/1310/homework/hw06.html -->
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+ <title>CSE1310 - Homework 6 </title>
+</head>
+
+<body>
+<a href="http://vlm1.uta.edu/~alex/courses/1310/homework/homework.html">Homework</a>
+<h2>Homework 6</h2>
+
+Topics: nested loops, string processing, METHODS.  (100 points)
+
+
+
+  <br>
+<!------------------------------------------------------------------->
+
+<hr>
+<h3>Task 1 (13 pts) - Vowel count </h3>
+Project: HW6_VowelCount
+<br>
+In this program write a <b>method</b> called <tt>vowelsCt</tt> that takes one String argument and returns how many vowels are in that string. 
+<!--</br><font color = "red">For your variables and parameters use the names given here.</font> -->
+<br> In the <tt>main</tt> method do the following:
+<ul>
+	<li> First read two Strings from the user, store them in 2 variables called <tt>s1</tt> and <tt>s2</tt>.
+	</li><li> Next, call <tt>vowelsCt</tt> for <tt>s1</tt>. Save the result in a variable and print it (from main).
+	</li><li> Then, call <tt>vowelsCt</tt> for <tt>s2</tt>. Save the result in a variable and print it (from main).
+	</li><li> There should be NO print statement or reading from the user in <tt>vowelsCt</tt>. All that must be done in the <tt>main</tt> method.
+</li></ul>
+The goal of this task is to write your own method and call it from the main method.
+<br> 
+For this assignment, the vowels are: a,e,i,o,u. (y will not be considered a vowel). Vowels should be recognized and counted regardless if they are uppercase or lowercase.
+<br>
+
+
+<pre>---------- Sample run 1:
+This program reads two strings and then calls a method to count how many vowels are in each one of them.
+Enter a string: cActus
+Enter a string: strictly
+Number of vowels in string cActus : 2
+Number of vowels in string strictly : 1
+
+
+
+</pre>
+<hr>
+
+
+
+ <h3>Task 2 (13 pts) </h3>
+Project: HW6_UpDownNone
+ <br>
+ In this program write a <b>method</b> called <tt>upDown</tt> that takes three integers as arguments and returns one of these 3 strings:
+	<ul>
+	<li> "increasing" if they are in strictly increasing order (note that 3,3,4 - are not strictly increasing),
+	</li><li> "decreasing" if they are in strictly decreasing order. 
+	</li><li> <s>"neither"</s> "none" otherwise.
+	<br>	
+	I recommend you use a complex condition to check for this (that is, have a single if statement with one big question).
+	</li></ul>	
+In the <tt>main</tt> method do the following:	
+		<ol>
+		<li> read three integers 
+		</li><li> call <tt>upDown</tt> for those integers, save the result in a variable and then print it.
+		</li><li> call <tt>upDown(5,1,9)</tt> (these exact values) again and print the numbers and the result. See sample run below.
+		</li><li> compare the two results and print <i>same</i> (if they were the same, e.g. both increasing) or <i>different</i> (if they were different e.g. one increasing and one none).
+		</li><li> Do not hardcode anything else other than the call to <tt>upDown(5,1,9)</tt> and the printing of <tt>5,1,9,</tt>above. Especially, do not hardcode that fact that the result of that method call is <i>none</i>. What that means is if I modify your program and replace <tt>upDown(5,1,9)</tt> with <tt>upDown(10,50,96)</tt>, the program should print <tt>increasing</tt>.
+		</li></ol>
+
+
+<pre>---------- Sample run 1:
+Enter three integers separated by spaces: 2 0 9
+These numbers are in order: none
+Numbers 5,1,9, are in the order: none
+same
+
+---------- Sample run 2:
+Enter three integers separated by spaces: 15 20 90
+These numbers are in order: increasing
+Numbers 5,1,9, are in the order: none
+different
+
+---------- Sample run 3:
+Enter three integers separated by spaces: 9 9 9
+These numbers are in order: none
+Numbers 5,1,9, are in the order: none
+same
+</pre>
+
+ <!------------------------------------------------------------------->
+ <hr>
+<h3>Task 3 (24 pts) </h3>
+Project and main class names: HW6_RepeatLetters
+ <br>
+Starting file: <a href="http://vlm1.uta.edu/~alex/courses/1310/homework/HW6/HW6_RepeatLetters_incomplete.java">HW6_RepeatLetters_incomplete.java</a> 
+<br>
+The file posted above contains an incomplete program, whose goal is to take as input text from the user, and then print out that text so that each letter of the text is repeated multiple times. Complete that program, by defining two methods:  <tt>repeatLetters_1</tt> and <tt>repeatLetters_2</tt>that satisfy the following specs:
+
+<ul>
+
+<li> <tt>repeatLetters_1</tt> takes two arguments, called <tt>text</tt>, and <tt>N</tt>. It goes through the letters of <tt>text</tt> in the order in which they appear in text, and prints each letter as many times as specified by the argument <tt>N</tt>.
+</li><li> <tt>repeatLetters_2</tt> does the same as <tt>repeatLetters_1</tt>, but it will print each consonant <tt>N</tt> times and each vowel <tt>2*N</tt> times.
+	<ol>
+		<li> It must recognize both upper case and lower case vowels (see <tt>Eve</tt> and <tt>adAm</tt> examples below).
+	</li></ol>
+</li></ul>
+
+<p>
+
+<strong>IMPORTANT: you are NOT allowed to modify in any way the main function.</strong>
+
+</p><p>
+
+This is an example run of the complete program:
+
+</p><pre>----------- Sample run 1
+This program repeatedly reads a word and a number, N, and repeats every  letter of the word.
+
+Enter a word, or q to quit: house of
+Enter number of times (must be &gt; 0): 3
+hhhooouuussseee   ooofff
+hhhoooooouuuuuussseeeeee   oooooofff
+
+
+Enter a word, or q to quit: cards
+Enter number of times (must be &gt; 0): 5
+cccccaaaaarrrrrdddddsssss
+cccccaaaaaaaaaarrrrrdddddsssss
+
+
+Enter a word, or q to quit: q
+
+----------- Sample run 2
+
+This program repeatedly reads a word and a number, N, and repeats every  letter of the word.
+
+Enter a word, or q to quit: cards
+Enter number of times (must be &gt; 0): 2
+ccaarrddss
+ccaaaarrddss
+
+
+Enter a word, or q to quit: odds
+Enter number of times (must be &gt; 0): 5
+oooooddddddddddsssss
+ooooooooooddddddddddsssss
+
+
+Enter a word, or q to quit: Eve
+Enter number of times (must be &gt; 0): 4
+EEEEvvvveeee
+EEEEEEEEvvvveeeeeeee
+
+
+Enter a word, or q to quit: adAm
+Enter number of times (must be &gt; 0): 3
+aaadddAAAmmm
+aaaaaadddAAAAAAmmm
+
+
+Enter a word, or q to quit: q
+
+
+----------- Sample run 3  (it repeats other symbols N times)
+
+This program repeatedly reads a word and a number, N, and repeats every  letter of the word.
+
+Enter a word, or q to quit: words and 67st%$
+Enter number of times (must be &gt; 0): 3
+wwwooorrrdddsss   aaannnddd   666777sssttt%%%$$$
+wwwoooooorrrdddsss   aaaaaannnddd   666777sssttt%%%$$$
+
+
+Enter a word, or q to quit: q
+</pre>
+
+<font color="purple"> <b> Extra</b> Can you implement a third method <tt>repeatLetters_3</tt> that would repeat consonants <tt>N</tt> times, vowels <tt>2*N</tt> times and any other character just one time? 
+<pre>----------- Sample run (it repeats non-letter symbols, including the SPACE, just once)
+This program repeatedly reads a word and a number, N, and repeats every  letter of the word.
+
+Enter a word, or q to quit: words and 67st%$
+Enter number of times (must be &gt; 0): 3
+wwwooorrrdddsss   aaannnddd   666777sssttt%%%$$$
+wwwoooooorrrdddsss   aaaaaannnddd   666777sssttt%%%$$$
+wwwoooooorrrdddsss aaaaaannnddd 67sssttt%$
+
+
+Enter a word, or q to quit: q
+</pre>
+</font>
+
+
+<hr>
+<h3>Task 4 (50 pts) - Print all substrings</h3>
+Project and main class names: HW6_Substrings
+ <br>
+Adapted from book problem P4.12, page 190.
+<br>
+
+Copy/paste the program from <a href="http://vlm1.uta.edu/~alex/courses/1310/homework/HW6/HW6_Substrings_incomplete.java">HW6_Substrings_incomplete.java</a> and implement the printSubstrings method. It will take as argument one string and print all its substrings, sorted by length as shown in the sample run below.
+<ol> 	
+	<li> Use string formatting to make the cells aligned. In particular each cell is as wide as the length of the string  plus 2.
+	</li><li> You must match the sample output completely (same number of spaces, dashed lines..).	
+</li></ol>
+Hints: 
+<ol>
+	<li>Use nested loops to produce the indexes needed to generate the substrings you want. With those indexes, use the substring method to create the substring. 
+	</li><li> First try to produce the substrings on a specific row. (See the pattern of the indexes that give all the substrings of some length,L.)
+	</li><li> Next, see how you can use an outer loop to make the above code (that produces one row) repeat.
+	</li><li> First focus on producing the substrings and then on printing the lines around them.
+	</li><li> In order to be able to produce this formatting, you must BUILD the formatting string. For example, for "cat", instead of hardcoding, "%3s", you must find the length of string and use string concatenation. That way, when a longer string is given, it will build the formatting string with the correct string length. 
+	See what this code does:
+	<pre>    String word = "cool";
+    int N = word.length();
+	String formatStr= " |%-" + N + "s |";
+	System.out.printf(formatStr, "c");
+	System.out.println();
+	System.out.printf(formatStr, "co");
+	System.out.println();
+	System.out.printf(formatStr, "cool");
+	System.out.println();
+	</pre>
+</li></ol>
+
+<pre>----------------------------- Sample run:
+This program will generate all the substrings of a given word, in increasing order of substring length.
+
+Please enter a word or q to quit: cat
+-------------------
+| c   | a   | t   |
+-------------------
+| ca  | at  |
+-------------
+| cat |
+-------
+
+Please enter a word or q to quit: elephant
+-----------------------------------------------------------------------------------------
+| e        | l        | e        | p        | h        | a        | n        | t        |
+-----------------------------------------------------------------------------------------
+| el       | le       | ep       | ph       | ha       | an       | nt       |
+------------------------------------------------------------------------------
+| ele      | lep      | eph      | pha      | han      | ant      |
+-------------------------------------------------------------------
+| elep     | leph     | epha     | phan     | hant     |
+--------------------------------------------------------
+| eleph    | lepha    | ephan    | phant    |
+---------------------------------------------
+| elepha   | lephan   | ephant   |
+----------------------------------
+| elephan  | lephant  |
+-----------------------
+| elephant |
+------------
+
+Please enter a word or q to quit: barn
+-----------------------------
+| b    | a    | r    | n    |
+-----------------------------
+| ba   | ar   | rn   |
+----------------------
+| bar  | arn  |
+---------------
+| barn |
+--------
+
+Please enter a word or q to quit: x
+-----
+| x |
+-----
+
+Please enter a word or q to quit: by
+-----------
+| b  | y  |
+-----------
+| by |
+------
+
+Please enter a word or q to quit: soon
+-----------------------------
+| s    | o    | o    | n    |
+-----------------------------
+| so   | oo   | on   |
+----------------------
+| soo  | oon  |
+---------------
+| soon |
+--------
+
+Please enter a word or q to quit: q
+
+
+Bye</pre>
+
+<hr>
+
+<font color="purple">
+<br><b> EXTRA 1: </b> Can you write another method to help you print the substrings?
+<br><b> EXTRA 2: </b> How would you change the printSubstrings method to display the substrings in order of position and display it in the format below. Call that method <tt>printSubstringsExtra2</tt>:
+<pre>----------------------------- Sample run:
+
+This program will generate all the substrings of a given word, in increasing order of substring length.
+
+Please enter a word or q to quit: cat
+----------------
+| c | ca | cat |
+----------------
+| a | at |
+----------
+| t |
+-----
+
+Please enter a word or q to quit: elephant
+-------------------------------------------------------------
+| e | el | ele | elep | eleph | elepha | elephan | elephant |
+-------------------------------------------------------------
+| l | le | lep | leph | lepha | lephan | lephant |
+--------------------------------------------------
+| e | ep | eph | epha | ephan | ephant |
+----------------------------------------
+| p | ph | pha | phan | phant |
+-------------------------------
+| h | ha | han | hant |
+-----------------------
+| a | an | ant |
+----------------
+| n | nt |
+----------
+| t |
+-----
+
+Please enter a word or q to quit: a
+-----
+| a |
+-----
+
+Please enter a word or q to quit: q
+
+
+Bye
+</pre>
+<hr>
+Check out the graphics applications and problems from the book (e.g. draw a spiral, draw a face).
+</font>
+
+ 
+<!------------------------------------------------------------------->
+<!--
+<hr>
+<h3>Task 6 ( pts)</h3>
+Project and main class names: HW4_ </br>
+Submit:  HW4_.java
+<p>
+Write a program that 
+
+-->
+
+
+
+<!------------------------------------------------------------------->
+<hr>
+
+<h3>Penalties</h3>
+All solution files (.java) should be placed in a folder called <b>HW6_Lastname</b>. Zip this folder and submit it to Blackboard. 
+
+
+
+<br> 
+ 
+
+
+<ol>
+<li> <font color="red"> The submitted homework must use methods as required. However if you are at a loss with using methods, DO NOT DELAY. You can start developing a program with just what the method is supposed to do (e.g. generate and print he substrings pattern), and later on you can move that code in a method (like we did in class on Thursday), and put the correct code in the main method.
+</font>
+
+</li><li>CODE THAT DOES NOT RUN  due to a SYNTAX ERROR 25%-80% penalty per task. Notice that this penalty is up to 80% now. At this point I expect you are able to understand the syntax and fix such problems.</li>
+
+<li> RUN-TIME ERROR FOR INPUT SPECIFICALLY SHOWED AS AN EXAMPLE: 20% of task grade. Runtime-error for grader’s input: 5-20% of task grade (depending on the reason of why it fails).  <br>
+</li>
+<li> **** Code using elements we had not covered at the time the homework was due, receives no credit. 
+
+</li><li> Up to <b>20</b> points will be lost for non-compliance with the submission requirements: folder name, all files in a folder, zipped folder, the compressed file is a zip, the program files have extension .java, ... </li>
+
+<li> Each program must have:
+<ul>
+	<li> description and your name at the top
+	</li><li> comments 
+	</li><li> meaningful variable names 
+	</li></ul>
+	A program missing some or all of these will receive a penalty of up to 10% of the points for that task.</li>
+<!--<li> The answers file must be .pdf, .docx or .txt. NO OTHER TYPES of files accepted. -->  
+</ol>
+
+
+<hr>
+
+
+
+
+
+</body></html>
